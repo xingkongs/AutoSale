@@ -7,8 +7,8 @@ ul,li{
     list-style: none;
 }
 .img--wrapper img:hover{
-    transform:scale(1.1);
-    transition:all 0.4s ease-in-out;
+    /*transform:scale(1.1);*/
+    /*transition:all 0.4s ease-in-out;*/
 }
 /*nav*/
 header{
@@ -21,6 +21,9 @@ header{
     margin:20px auto;
     font-size:1em;
     position:relative;
+}
+.logo--wrapper a{
+    text-indent: -9999em;
 }
 .logo--wrapper .link{
     position:absolute;
@@ -123,11 +126,9 @@ header .navbar .division{
 .slidemodel .am-slider-default .am-direction-nav a:before {
     width: 14px;
     content: "";
-    background: url("http://www.d1ev.com/2016gnev/image/prev.png") no-repeat;
 }
 .slidemodel .am-slider-default .am-direction-nav a.am-next:before {
     content: "";
-    background:url("http://www.d1ev.com/2016gnev/image/next.png") no-repeat;
 }
 .slidemodel .am-slider-default .am-direction-nav .am-prev {
     left: 14px;
@@ -158,6 +159,7 @@ header .navbar .division{
 }
 .slidemodel .am-slider-default {
     margin: 0;
+    min-height: 360px;
 }
 
 /*已参团*/
@@ -205,6 +207,7 @@ header .navbar .division{
 .txtMarquee-left .bd {
     padding: 10px;
     width: 87%;
+    height: 44px;
     overflow: hidden;
 }
 .txtMarquee-left .bd ul{ overflow:hidden; zoom:1; }
@@ -359,12 +362,7 @@ header .navbar .division{
     color:#f60;
 }
 /*广告*/
-.ad .img-wrapper{
-    width:100%;
-    height:137.5px;
-    background: url(http://afp.alicdn.com/afp-creative/creative/u116234497/05c335b2a0a02316bee8f92b6d15098c.jpg) no-repeat center center;
-    background-size: cover;
-}
+
 
 /*团购车型*/
 .salemodel{
@@ -414,14 +412,19 @@ header .navbar .division{
     box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.5);
 }
 .salemodel .card .img--wrapper{
-    max-width:333px;
-    max-height:222px;
+    width:333px;
+    height:222px;
     overflow: hidden;
     outline: 1px solid #f8f8f8;
+    position: relative;
 }
 .salemodel .card .img--wrapper img{
-    width:100%;
-    max-height:234px;
+    width: 100%;
+    position: absolute;
+    max-height: 234px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .salemodel .card p{
     font-size:14px;
@@ -534,7 +537,7 @@ header .navbar .division{
 }
 .saleleader .card_content{
     text-align:left;
-    padding:0 25px;
+    padding:0 20px;
     font-size:18px;
     color:#999;
 }
@@ -585,10 +588,13 @@ footer .about a,footer .about a:hover{
     color:#787878;
 }
 footer .about .phone--wrapper{
-    flex:240px;
-    text-align:center;
-    border-left:1px solid #e6e6e6;
-    line-height:1;
+    flex: 240px;
+    text-align: center;
+    border-left: 1px solid #e6e6e6;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 footer .phone--wrapper .button{
     line-height:40px;
@@ -615,114 +621,145 @@ footer .phone--wrapper .onlinetime{
 footer .phone--wrapper .iconfont{
     margin-right:10px;
 }
-
 .footer-fixed{
-    position:fixed;
-    top:35%;
-    right:0;
-    z-index: 2;
+    display: none;
 }
-.am-gotop-fixed.am-no-layout{
-    cursor:none;
+.ws-fixed {
+    position: fixed;
+    z-index: 9;
+    bottom: 100px;
+    right: 20px;
+    color: #fff;
+    width: 40px;
+    min-height: 219px;
+    text-align: center;
+    padding-top:39px;
 }
-.am-gotop-fixed.am-active{
-    cursor:pointer;
-}
-.footer-fixed a,.footer-fixed a:focus,.footer-fixed a:hover{
-
-}
-.footer-fixed .footer_btn{
-    width:40px;
-    line-height:40px;
+.ws-fixed .ws-fixed-read {
+    display: none;
     height: 40px;
-    font-size:12px;
-    font-weight:bold;
-    color: #1a0a2c;
-    text-align:center;
-    margin-bottom:8px;
-    position:relative;
-    padding: 0;
-    background: transparent;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 12px;
+    padding: 10px 8px;
+    cursor: pointer;
+    background: #808080;
+    line-height: 1.3em;
 }
-.footer-fixed .footer_btn .btn_img{
-    display:none;
+.ws-fixed .ws-fixed-app {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.ws-fixed .ws-fixed-app a {
+    padding: 6px;
+    display: block;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    background: #808080;
+    line-height: 1.3em;
+}
+.ws-fixed .ws-fixed-app.mini-program{
+    padding: 6px 0;
+    display: block;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    background: #808080;
+    line-height: 28px;
+    text-align: center;
+    position: relative;
+}
+.ws-fixed .ws-fixed-app.mini-program .img--wrapper{
+    visibility: hidden;
+    width:172px;
+    height:172px;
     position: absolute;
     right: 175%;
     bottom: -70%;
-    width: 172px;
-    height: 172px;
-    border: 1px solid #e6e6e6;
-    text-align: center;
+    padding:2px;
     background: #fff;
+    border:1px solid #e6e6e6;
     border-radius:4px;
 }
-.footer-fixed .footer_btn:hover .btn_img{
-    display:block;
+.ws-fixed .ws-fixed-app.mini-program:hover .img--wrapper{
+    visibility: visible;
+    transition: visibility 0.2s ease-in 0.2s;
 }
-.footer-fixed .footer_btn .btn_img:before{
-    content: '';
+.ws-fixed .ws-fixed-app.mini-program .img--wrapper::before {
+    content: "";
     display: block;
     position: absolute;
     top: 67%;
     right: -26px;
     width: 0;
     height: 0;
-    border: 13px solid transparent;
-    border-left-color: #e6e6e6;
     z-index: 1;
+    border: 13px solid transparent;
+    border-left-color: rgb(230, 230, 230);
+    border-image: initial;
 }
-.footer-fixed .footer_btn .btn_img:after{
-    content: '';
+.ws-fixed .ws-fixed-app.mini-program .img--wrapper::after {
+    content: "";
     display: block;
     position: absolute;
     top: 67%;
     right: -25px;
     width: 0;
     height: 0;
-    border: 13px solid transparent;
-    border-left-color: #fff;
     z-index: 2;
+    border: 13px solid transparent;
+    border-left-color: rgb(255, 255, 255);
+    border-image: initial;
 }
-.footer-fixed .footer_btn:hover{
-    background: #f60;
+.ws-fixed .ws-fixed-app.mini-program img{
+    width:100%;
 }
-.footer-fixed .footer_btn span{
+.ws-fixed .ws-fixed-scroll {
     display: none;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:34px;
+    background: #808080;
 }
-.footer-fixed .footer_btn:hover .iconfont{
-    display:none;
+.ws-fixed .ws-fixed-scroll a{
+    height:34px;
+    padding:0 6px 0;
 }
-.footer-fixed .footer_btn:hover span{
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    font-weight: normal;
-    line-height: 1.2;
-    color: #fff;
-    margin-top: 4px;
+.ws-fixed .ws-fixed-scroll:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 34px;
+    left: 10px;
+    border: 10px solid transparent;
+    border-bottom-color: #808080;
+    transform: scale(2,1);
 }
-.footer-fixed .footer_btn.btn1 span{
-    width:36px;
-}
-.footer-fixed .iconfont{
-    font-size: 40px;
-    color:#f60;
-}
-.am-gotop-fixed {
-    right: 0;
-    bottom: auto;
-    vertical-align: middle;
-}
-.footer-fixed .footer_btn.btn4{
-    margin-top:8px;
-}
-.footer-fixed .footer_btn.btn4 a span{
-    color:#fff;font-weight:normal;
-}
-.footer-fixed .footer_btn.btn4 img{
-    margin-top:-3px;
+.ws-fixed .ws-fixed-scroll i {
+    width: 22px;
+    height: 22px;
+    background: url("../images/top.png") no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -11px;
+    margin-left: -11px;
 }
 
+.ws-fixed .ws-fixed-app:hover a,.ws-fixed .mini-program:hover{
+    background: #f60;
+    transition: background-color 0.2s ease-in 0.2s;
+}
+.ws-fixed .ws-fixed-scroll:hover:before{
+    border-bottom-color: #f60;
+    transition: border-bottom-color 0.2s ease-in 0.2s;
+}
 
 /*model*/
 .am-modal-hd{
@@ -761,11 +798,15 @@ footer .phone--wrapper .iconfont{
     font-size: 22px;
     text-align: left;
 }
+.am-modal .activity span{
+    font-size: 14px;
+    margin-left: 5px;
+}
 .am-modal .activity:before {
     content: "";
     position: absolute;
     left: 60px;
-    top: 15px;
+    top: 16px;
     width: 4px;
     height: 30px;
     /* outline: 1px solid red; */
@@ -778,10 +819,29 @@ footer .phone--wrapper .iconfont{
 }
 .am-form-inline{
     margin:10px auto;
+    position:relative;
+}
+.ws-form-itemclose{
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 20px;
+    height: 37px;
+    text-align: center;
+    line-height: 37px;
+    cursor: pointer;
 }
 .am-modal .am-form-inline input{
-    margin:0 20px 0 10px;
+    margin:0 15px 0 10px;
     width:240px;
+}
+.form_info .am-form-group:nth-child(3){
+    float:left;
+    margin-left: 3px;
+}
+.form_info .am-selected{
+    margin: 0 20px 0 10px;
+    width: 240px;
 }
 .am-modal .am-form-inline .am-form-group:nth-child(2) input{
     margin-right:0;
